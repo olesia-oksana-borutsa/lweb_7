@@ -1,58 +1,117 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { inventoryApi } from '../services/inventoryApi';
+import './AdminForm.css'; 
+
 
 const AdminInventoryEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [currentPhoto, setCurrentPhoto] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    inventoryApi.getOne(id).then(res => {
-      setName(res.data.name);
-      setDescription(res.data.description);
-    });
+    inventoryApi.getOne(id)
+      .then(res => {
+        setName(res.data.name);
+        setDescription(res.data.description);
+        setCurrentPhoto(res.data.photo_url);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
   }, [id]);
 
   const handleUpdateText = async (e) => {
     e.preventDefault();
     try {
       await inventoryApi.updateText(id, { name, description });
-      alert("Опис чашки оновлено! ");
+      alert("Дані оновлено успішно! ");
     } catch (err) {
-      alert("Помилка при оновленні тексту");
+      alert("Не вдалося оновити текст ");
     }
   };
 
   const handleUpdatePhoto = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
+    
     const fd = new FormData();
     fd.append('photo', file);
+    
     try {
       await inventoryApi.updatePhoto(id, fd);
-      alert("Фото оновлено! ");
+      alert("Фотографію змінено! ");
       navigate('/admin');
     } catch (err) {
       alert("Помилка при завантаженні фото");
     }
   };
 
-  return (
-    <div style={{ padding: '20px', maxWidth: '500px' }}>
-      <h2 style={{ color: '#d87093' }}>Редагування чашки</h2>
-      
-      <form onSubmit={handleUpdateText} style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '30px', padding: '20px', background: '#fff', borderRadius: '15px' }}>
-        <h3>Змінити інформацію</h3>
-        <input value={name} onChange={e => setName(e.target.value)} placeholder="Назва" />
-        <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Опис" rows="4" />
-        <button type="submit">Оновити текст</button>
-      </form>
+  if (loading) return <div className="loading-text">Завантаження даних... </div>;
 
-      <div style={{ padding: '20px', background: '#fff', borderRadius: '15px', border: '2px dashed #ffb6c1' }}>
-        <h3>Оновити фотографію</h3>
-        <input type="file" onChange={handleUpdatePhoto} />
+  return (
+    <div className="admin-form-container" style={{ maxWidth: '1000px' }}>
+      <div className="back-link-container">
+        <Link to="/admin" className="back-link">
+          ← Повернутись до складу
+        </Link>
+      </div>
+
+      <h1 className="admin-form-title">Редагування чашки</h1>
+
+      <div className="edit-grid">
+        {/*  Форма з текстом */}
+        <section>
+          <form onSubmit={handleUpdateText} className="form-paper-card">
+            <h3 style={{ color: '#8b4b5d', marginBottom: '20px' }}>Інформація про модель</h3>
+            
+            <div className="input-group">
+              <label className="input-label">Назва:</label>
+              <input 
+                className="admin-input"
+                value={name} 
+                onChange={e => setName(e.target.value)} 
+              />
+            </div>
+
+            <div className="input-group">
+              <label className="input-label">Опис:</label>
+              <textarea 
+                className="admin-textarea"
+                value={description} 
+                onChange={e => setDescription(e.target.value)} 
+                rows="8"
+              />
+            </div>
+
+            <button type="submit" className="btn-submit">
+              Зберегти текст
+            </button>
+          </form>
+        </section>
+
+        {/*  Фото */}
+        <section>
+          <div className="photo-card">
+            <h3 style={{ color: '#8b4b5d', marginBottom: '20px' }}>Поточне фото</h3>
+            {currentPhoto && (
+              <img 
+                src={`http://localhost:3000${currentPhoto}`} 
+                alt="Cup preview" 
+                className="current-photo"
+              />
+            )}
+            <label className="file-upload-label">
+              <span>Замінити фото </span>
+              <input type="file" onChange={handleUpdatePhoto} style={{ display: 'none' }} />
+            </label>
+          </div>
+        </section>
       </div>
     </div>
   );

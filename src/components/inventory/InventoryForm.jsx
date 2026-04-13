@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './InventoryForm.css';
 
 const InventoryForm = ({ onSubmit, initialData = {} }) => {
   const [name, setName] = useState(initialData.name || '');
@@ -18,41 +19,43 @@ const InventoryForm = ({ onSubmit, initialData = {} }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      gap: '15px', 
-      maxWidth: '400px', 
-      background: 'white', 
-      padding: '25px', 
-      borderRadius: '15px', 
-      boxShadow: '0 5px 15px rgba(255, 182, 193, 0.2)' 
-    }}>
-      <label style={{ fontWeight: 'bold', color: '#8b4b5d' }}>Назва чашки:</label>
-      <input 
-        type="text" 
-        value={name} 
-        onChange={(e) => setName(e.target.value)} 
-        placeholder="наприклад: Gingerbread Man Mug"
-      />
+    <form onSubmit={handleSubmit} className="inventory-form">
+      <div className="form-group">
+        <label className="form-label">Назва чашки:</label>
+        <input 
+          className="form-input"
+          type="text" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+          placeholder="наприклад: Gingerbread Man Mug"
+        />
+      </div>
 
-      <label style={{ fontWeight: 'bold', color: '#8b4b5d' }}>Опис:</label>
-      <textarea 
-        value={description} 
-        onChange={(e) => setDescription(e.target.value)} 
-        placeholder="Опишіть вашу чашку..."
-        rows="4"
-      />
+      <div className="form-group">
+        <label className="form-label">Опис:</label>
+        <textarea 
+          className="form-textarea"
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)} 
+          placeholder="Опишіть вашу чашку..."
+          rows="4"
+        />
+      </div>
 
-      <label style={{ fontWeight: 'bold', color: '#8b4b5d' }}>Додати фото:</label>
-      <input 
-        type="file" 
-        accept="image/*" 
-        onChange={(e) => setPhoto(e.target.files[0])} 
-        style={{ border: 'none' }}
-      />
+      <div className="form-group">
+        <label className="form-label">Додати фото:</label>
+        <div className="file-input-wrapper">
+          <input 
+            type="file" 
+            accept="image/*" 
+            onChange={(e) => setPhoto(e.target.files[0])} 
+          />
+        </div>
+      </div>
 
-      <button type="submit">Зберегти у колекцію </button>
+      <button type="submit" className="btn-submit-form">
+        Зберегти у колекцію
+      </button>
     </form>
   );
 };
