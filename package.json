@@ -1,33 +1,30 @@
 {
-  "name": "lab_6",
+  "name": "inventory-cups-lweb7",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon main.js -- -h localhost -p 3000 -c ./my-cache"
+    "start:backend": "node main.js -h localhost -p 3000 -c ./my-cache",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/olesia-oksana-borutsa/backend-course-2025-6.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/olesia-oksana-borutsa/backend-course-2025-6/issues"
-  },
-  "homepage": "https://github.com/olesia-oksana-borutsa/backend-course-2025-6#readme",
   "dependencies": {
+    "axios": "^1.6.0",
     "commander": "^14.0.2",
     "express": "^5.1.0",
     "multer": "^2.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
     "superagent": "^10.2.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "nodemon": "^3.1.11",
+    "vite": "^5.0.0"
   }
 }
