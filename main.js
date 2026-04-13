@@ -5,6 +5,8 @@ import path from "path";
 import multer from "multer";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
+import cors from 'cors';
+
 
 const program = new Command();
 
@@ -33,6 +35,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const app = express();
+app.use(cors()); 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

@@ -1,13 +1,16 @@
-/* src/index.css */
+
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #fff5f7; /* Світло-рожевий фон */
+  background-color: #fff5f7; 
+  
   color: #4a3439;
 }
 
 nav {
-  background-color: #ffd1dc !important; /* Pastel pink */
+  background-color: #ffd1dc !important; 
+  
   box-shadow: 0 2px 10px rgba(255, 182, 193, 0.3);
   display: flex;
   gap: 20px;
@@ -25,10 +28,12 @@ nav a:hover {
 }
 
 h2 {
-  color: #d87093; /* Pale Violet Red */
+  color: #d87093; 
+  
 }
 
-/* Стиль для карток у таблиці */
+
+
 table tr {
   transition: transform 0.2s;
 }
