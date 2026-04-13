@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1763317779831",
+    "name": "Wizard Cat Mug",
+    "description": "changed description",
+    "photo": "1763317779824.jpg"
+  },
+  {
+    "id": "1763317825588",
+    "name": "Hello Kitty  Mug",
+    "description": "A large ceramic mug sculpted to look like Hello Kitty. Features her iconic face with a pink bow and a matching pink dress.",
+    "photo": "1763317825575.jpg"
+  },
+  {
+    "id": "1763317852732",
+    "name": "Happy Frog Mug",
+    "description": "A handmade green ceramic mug shaped like a happy frog holding a yellow star. Features two large eyes and a smiling face.",
+    "photo": "1763317852729.jpg"
+  },
+  {
+    "id": "1763318226146",
+    "name": "cat",
+    "description": "cat smiling",
+    "photo": "1763318226136.jpg"
+  },
+  {
+    "id": "1763318309099",
+    "name": "christmas tree mug",
+    "description": "A green ceramic mug shaped like a snowy Christmas tree. Features white snow details on the branches and a contrasting red handle",
+    "photo": "1763318309096.jpg"
+  },
+  {
+    "id": "1763737389585",
+    "name": "Grey Totoro Mug",
+    "description": "A grey ceramic mug shaped like Totoro featuring a white belly and ears on the rim. A small white Totoro and a black soot sprite sit on the handle.",
+    "photo": "1763738044230.jpg"
+  },
+  {
+    "id": "1764595646852",
+    "name": "new item",
+    "description": "description",
+    "photo": "1764595790151.jpg"
+  },
+  {
+    "id": "1764596822376",
+    "name": "Gingerbread Man Mug",
+    "description": "A festive mug shaped like a smiling gingerbread man. Brown glaze with white icing details, a red bow tie, and a red handle.",
+    "photo": "1764596822326.jpg"
+  }
+]
