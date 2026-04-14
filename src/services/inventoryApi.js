@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = axios.create({ baseURL: 'http://localhost:3000' });
 
-// ОСЬ ТУТ має бути слово export
+
 export const inventoryApi = {
   getAll: () => API.get('/inventory'),
   getOne: (id) => API.get(`/inventory/${id}`),

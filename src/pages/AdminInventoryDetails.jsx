@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { inventoryApi } from '../services/inventoryApi';
+import InventoryDetails from '../components/inventory/InventoryDetails'; // 1. Імпортуємо компонент
 import './AdminInventoryDetails.css';
 
 const AdminInventoryDetails = () => {
@@ -21,18 +22,9 @@ const AdminInventoryDetails = () => {
         ← Повернутись до складу
       </Link>
       
-      <h1 className="details-header">{item.name}</h1>
-      <p className="details-text">{item.description}</p>
       
-      {item.photo_url && (
-        <div className="details-image-wrapper">
-          <img 
-            src={`http://localhost:3000${item.photo_url}`} 
-            alt={item.name} 
-            className="details-full-image"
-          />
-        </div>
-      )}
+      <InventoryDetails item={item} /> 
+      
     </div>
   );
 };

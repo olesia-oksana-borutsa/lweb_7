@@ -1,7 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { inventoryApi } from '../services/inventoryApi';
 import InventoryForm from '../components/inventory/InventoryForm';
-import './AdminForm.css'; // Підключаємо наш CSS
+import './AdminForm.css'; 
 
 const AdminInventoryCreate = () => {
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ const AdminInventoryCreate = () => {
       alert("Не вдалося додати чашку. Перевірте дані.");
     }
   };
+  
 
   return (
     <div className="admin-form-container">
