@@ -1,36 +1,32 @@
 import { useInventory } from '../store/InventoryContext';
 import { useFavorites } from '../hooks/useFavorites';
 import InventoryCard from '../components/gallery/InventoryCard';
-import './Gallery.css'; // Використовуємо ті ж стилі грід-сітки
+import './Gallery.css'; 
 
 const Favorites = () => {
   const { items } = useInventory();
-  const { isFavorite, toggleFavorite } = useFavorites();
+  const { favorites, isFavorite, toggleFavorite } = useFavorites();
 
-  // Фільтруємо список: залишаємо тільки ті чашки, чий ID є в списку улюблених
-  const favoriteItems = items.filter(item => isFavorite(item.id));
+  const favoriteItems = items.filter(item => favorites.includes(item.id));
 
   return (
     <div className="gallery-page">
-      <div className="gallery-intro">
-        <h1>Ваші улюблені чашки ❤️</h1>
+      <header className="gallery-intro">
+        <h1>Ваші улюблені чашки </h1>
         <p>Тут зібрані всі моделі, які припали вам до душі</p>
-      </div>
+      </header>
 
       {favoriteItems.length === 0 ? (
-        <div className="empty-state">
-          <p>Ви ще не додали жодної чашки до улюблених.</p>
-          <p style={{fontSize: '3rem'}}>☕</p>
-        </div>
+        <p className="empty-msg">Ви ще нічого не додали до обраного.</p>
       ) : (
-        <div className="inventory-grid">
+        <div className="inventory-flex">
           {favoriteItems.map(item => (
             <InventoryCard 
               key={item.id}
               item={item}
-              isFav={true} // Тут вони всі точно улюблені
+              isFav={true}
               onToggleFav={toggleFavorite}
-              onOpenDetails={(cup) => alert(`Деталі для ${cup.name}`)}
+              onOpenDetails={() => {}} 
             />
           ))}
         </div>
@@ -38,6 +34,5 @@ const Favorites = () => {
     </div>
   );
 };
-
 
 export default Favorites;
