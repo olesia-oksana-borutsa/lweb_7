@@ -9,22 +9,17 @@ const InventoryQuickView = ({ item, onClose }) => {
         <button className="close-btn" onClick={onClose}>&times;</button>
         
         <div className="quickview-body">
-          <div className="quickview-image">
+          <div className="quickview-image-box">
             <img 
               src={`http://localhost:3000${item.photo_url}`} 
               alt={item.name} 
             />
           </div>
           
-          <div className="quickview-info">
-            <h2>{item.name}</h2>
-            <div className="quickview-divider"></div>
-            <p className="quickview-description">{item.description}</p>
-            
-            <div className="quickview-footer">
-              <span className="quickview-tag">Ручна робота</span>
-              <span className="quickview-tag">Кераміка</span>
-            </div>
+          <div className="quickview-info-box">
+            <h2 className="qv-title">{item.name}</h2>
+            <div className="qv-line"></div>
+            <p className="qv-description">{item.description}</p>
           </div>
         </div>
       </div>
