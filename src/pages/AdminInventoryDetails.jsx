@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { inventoryApi } from '../services/inventoryApi';
-import InventoryDetails from '../components/inventory/InventoryDetails'; // 1. Імпортуємо компонент
+import InventoryDetails from '../components/inventory/InventoryDetails'; 
 import './AdminInventoryDetails.css';
 
 const AdminInventoryDetails = () => {

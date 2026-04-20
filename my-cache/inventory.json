@@ -1,11 +1,5 @@
 [
   {
-    "id": "1763317825588",
-    "name": "Hello Kitty ",
-    "description": "A large ceramic mug sculpted to look like Hello Kitty. Features her iconic face with a pink bow and a matching pink dress.",
-    "photo": "1763317825575.jpg"
-  },
-  {
     "id": "1763317852732",
     "name": "Happy Frog Mug",
     "description": "A handmade green ceramic mug shaped like a happy frog holding a yellow star. Features two large eyes and a smiling face.",
@@ -34,5 +28,11 @@
     "name": "Bunny Ceramic Mug",
     "description": "A charming white ceramic mug shaped like a round bunny. Features 3D floppy ears, cute pink paws, and a tiny pink nose. Perfect for a cozy tea time.",
     "photo": "1776090831126.jpg"
+  },
+  {
+    "id": "1776245554442",
+    "name": "new",
+    "description": "new",
+    "photo": "1776245554427.jpg"
   }
 ]
